@@ -16,3 +16,6 @@ Route::get('/hello'     , function () {return 'hello world';});
 Route::get('/contact'   , 'StaticPageController@contact');
 Route::get('/about'     , 'StaticPageController@about');
 Route::get('/people'    , 'StaticPageController@people');
+Route::get('/jongere/list' ,
+           ['as'=>'jongerelijst',
+            'uses'=>'JongereController@getAll']);
