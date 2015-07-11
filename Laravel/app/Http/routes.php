@@ -20,11 +20,17 @@ Route::get('/people'    , 'StaticPageController@people');
 
 
 Route::get('/jongeren' ,
-           ['as'=>'listJongeren',
-            'uses'=>'JongerenController@index']);
+    ['as'=>'listJongeren',
+        'uses'=>'JongerenController@index']);
+
 Route::get('/jongeren/create',
-           ['as'=>'createJongere',
-            'uses'=>'jongerenController@create']);
+    ['as'=>'createJongere',
+        'uses'=>'jongerenController@create']);
+
+Route::get('/jongeren/read',
+    ['as'=>'createJongere',
+        'uses'=>'jongerenController@read']);
+
 Route::get('/jongeren/{id}',
-           ['as'=>'showJongereById',
-            'uses'=>'jongerenController@show']);
+    ['as'=>'showJongereById',
+        'uses'=>'jongerenController@show']);

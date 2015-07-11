@@ -16,12 +16,19 @@ class JongerenController extends Controller
         $jongeren = Jongere::all();
         return view('jongere.showall',compact('jongeren'));
     }
-    
+
     public function show($id) {
-        
+
         $jongere = Jongere::find($id);
         return view('jongere.show_jongere_info',compact('jongere'));
-        
+
+    }
+
+    public function read($id) {
+
+        $jongere = Jongere::find($id);
+        return view('jongere.show_jongere_info',compact('jongere'));
+
     }
 
     public function create() {
