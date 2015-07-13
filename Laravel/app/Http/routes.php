@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/'          , function () {return view('staticPages.welcome');});
+Route::get('/'          ,['as'=>'home','uses'=>'StaticPageController@home']);
 
 Route::get('/hello'     , function () {return 'hello world';});
 Route::get('/contact'   , 'StaticPageController@contact');
@@ -19,18 +19,11 @@ Route::get('/about'     , 'StaticPageController@about');
 Route::get('/people'    , 'StaticPageController@people');
 
 
-Route::get('/jongeren' ,
-    ['as'=>'listJongeren',
-        'uses'=>'JongerenController@index']);
 
-Route::get('/jongeren/create',
-    ['as'=>'createJongere',
-        'uses'=>'jongerenController@create']);
+Route::get('/jongeren'  ,       ['as'=>'showJongeren',      'uses'=>'JongerenController@index']);
+Route::get('/jongeren/create',  ['as'=>'createJongere',     'uses'=>'JongerenController@create']);
+Route::get('/jongeren/read',    ['as'=>'readJongere',       'uses'=>'JongerenController@read']);
+Route::get('/jongeren/{id}',    ['as'=>'showJongereById',   'uses'=>'JongerenController@show']);
 
-Route::get('/jongeren/read',
-    ['as'=>'createJongere',
-        'uses'=>'jongerenController@read']);
+Route::post('/jongeren' ,       ['as'=>'storeJongere',      'uses'=>'JongerenController@store']);
 
-Route::get('/jongeren/{id}',
-    ['as'=>'showJongereById',
-        'uses'=>'jongerenController@show']);

@@ -17,7 +17,7 @@ class CreateTableJongere extends Migration
             $table->timestamps();
             $table->string('voornaam');
             $table->string('naam');
-            $table->date('geboortedatum');
+            $table->timestamp('geboortedatum');
             $table->integer('nationaliteit_id')->unsigned();
             $table->integer('origine_id')->unsigned();
             $table->string('email')->nullable();
