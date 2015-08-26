@@ -10,21 +10,18 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Navbar Template for Bootstrap</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>Den Tube :: @yield('title')</title>
+    <script src="/js/jquery.min.js"></script>
+
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <script src="/js/bootstrap.min.js"></script>
 
 
-    <!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -53,46 +50,64 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beheer Categori&euml;n <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li><a href="/activiteit">Activiteiten</a></li>
+                            <li><a href="/jongere">Jongeren</a></li>
+                            <li><a href="/ouder">Ouders</a></li>
+                            <li><a href="/huisarts">Dokters</a></li>
                             <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li class="dropdown-header">Ondergeschikt</li>
+                            <li><a href="/nationaliteit">Nationaliteiten</a></li>
+                            <li><a href="/taal">Talen</a></li>
+                            <li><a href="/groep">Groepen</a></li>
+                            <li><a href="/extrainfo">Extra Info's</a></li>
+                            <li><a href="/straat">Straten</a></li>
+                            <li><a href="/gemeente">Gemeenten</a></li>
+                            <li><a href="/relatie">Relaties contactpersonen</a></li>
                         </ul>
                     </li>
-                </ul>
+                    <li><a href="/activiteit">Activiteiten</a></li>
+                    <li><a href="/storting">Stortingen</a></li>
+                    <li><a href="/jongere">Jongeren</a></li>
+                </ul><!--
                 <ul class="nav navbar-nav navbar-right">
                     <li><div style="padding-top:15px">Aangemeld als</div></li>
                     <li><a href="#">StevenH</a></li>
-                </ul>
+                </ul>-->
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-        @yield('content')
+        <div class="container">
+            <div class="row hideMeForScreen showMeForPrint">
+                <div class="col-md-12">
+                    <img src="http://dentube.lampeke.be/sites/all/themes/tube/img/header-logo.png">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </div>
 
-</div> <!-- /container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<script src="../../dist/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</div>
+<style>
+    .hideMeForScreen {display:none}
+    div{border:0px solid black;}
+@media print {
+.hideMeForPrint {display:none;}
+a[href]:after {content: "";}
+h2 {margin-bottom: 0.5cm;}
+td {padding:0px !important;margin:0px!important;}
+.showMeForPrint {display:block;}
+}
+</style>
 </body>
 </html>
 

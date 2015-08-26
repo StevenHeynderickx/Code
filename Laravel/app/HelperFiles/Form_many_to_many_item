@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row col-md-4">
+        <p class="text-right" style="padding-right:10px;">
+            Extrainfo
+        </p>
+    </div>
+    <div class="row col-md-8">
+        <p class="text-left">
+            <a href="#" type="button" class="btn btn-primary btn-xs" id="btn_show_extrainfo_form"
+               onMouseUp="javascript:document.getElementById('form_extrainfo').style.display = 'block';
+               document.getElementById('btn_show_extrainfo_form').style.display = 'none';">
+                <span class="glyphicon glyphicon-plus" aria-hidden="false" aria-label="Toevoegen"></span>
+            </a>&nbsp;
+
+            @foreach($extrainfos as $key=>$value)
+                <span class="btn-group" role="group">
+                        <a href="/extrainfo/{{$key}}" type="button" class="btn btn-default btn-sm">
+                            {{$value}}
+                        </a>
+                        <a href="/jongere/{{$jongere->id}}/extrainfo/{{$key}}/disconnect" type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="false" aria-label="Verwijder"></span>
+                        </a>
+                    </span>&nbsp;
+            @endforeach
+
+        </p>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row col-md-4"></div>
+    <div class="row col-md-8" id="form_extrainfo">
+        {!! Form::open(['route' => 'extrainfo.store','name'=>'form_extrainfo'] )!!}
+        <div class="form-group">
+
+
+            <div class="input-group">
+                <span class="input-group-addon" id="alert_extrainfo">Onbekende Extrainfo</span>
+                {!! Form::text('entry_extrainfo',null,['placeholder'=>'Typ extrainfo en selecteer','class'=>'form-control','onKeyUp'=>'javascript:obj1.bldUpdate();'])!!}
+                <div class="input-group-btn">
+                    <a href="/#" type="button" class="btn btn-default" id="btnAdd_extrainfo">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="false" aria-label="Maken"></span>
+                    </a>
+                    <a href="/#" type="button" class="btn btn-danger" id="btnAlert_extrainfo">
+                        <span class="glyphicon glyphicon-warning-sign" aria-hidden="false" aria-label="Bestaat reeds"></span>
+                    </a>
+                </div>
+            </div>
+
+            <select name="select_extrainfo" size=5 class="form-control" onMouseUp="javascript:obj1.copySelectedToInput();">
+                @foreach ($alleExtrainfos as $extrainfo)
+                    <option value="{{ $extrainfo->id }}">
+                        {{ $extrainfo->omschrijving }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        {!! Form::close() !!}
+    </div>
+</div>

@@ -8,7 +8,7 @@
             }
         </style>
 
-                <div class="title">About <?= $name; ?></div>
+                <div class="title">About Edith <?= $name; ?></div>
                 <div class="title">About {{ $name }}</div>
                 <div class="text">Lorem ipsum dolor sit amet, at graeci malorum deserunt eam,
                 ex vel hinc euismod hendrerit. Mel amet deserunt patrioque in. Ad lorem utamur
