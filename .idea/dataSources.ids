@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - homestead@127.0.0.1" uuid="a6c99577-3e68-41b3-b7aa-2e3696dbf4a6">
+    <database-info product="MySQL" version="5.6.19-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="homestead"/>
+    <table name="activiteit_jongere" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="activiteit_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bedrag" sqlType="DECIMAL" precision="5" scale="2" nullable="false" jdbcType="3"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="eetmee" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <foreign-key name="activiteit_jongere_activiteit_id_foreign" columns="activiteit_id" ref-table="activiteiten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="activiteit_jongere_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="activiteit_jongere_activiteit_id_index" unique="false" columns="activiteit_id"/>
+      <index name="activiteit_jongere_jongere_id_index" unique="false" columns="jongere_id"/>
+    </table>
+    <table name="activiteiten" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="omschrijving" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="prijs" sqlType="DECIMAL" precision="5" scale="2" nullable="false" jdbcType="3"/>
+      <column name="maaltijd" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="datum" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="activiteit_jongere_activiteit_id_foreign" table="activiteit_jongere" schema="" catalog="homestead" columns="activiteit_id"/>
+    </table>
+    <table name="adres_jongere" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="adres_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="adres_jongere_adres_id_foreign" columns="adres_id" ref-table="adressen" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="adres_jongere_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="adres_jongere_adres_id_index" unique="false" columns="adres_id"/>
+      <index name="adres_jongere_jongere_id_index" unique="false" columns="jongere_id"/>
+    </table>
+    <table name="adressen" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="omschrijving" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="straat_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nummer" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="bus" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="gemeente_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="officieel" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="adressen_gemeente_id_foreign" columns="gemeente_id" ref-table="gemeenten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="adressen_straat_id_foreign" columns="straat_id" ref-table="straten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="adres_jongere_adres_id_foreign" table="adres_jongere" schema="" catalog="homestead" columns="adres_id"/>
+      <index name="adressen_gemeente_id_index" unique="false" columns="gemeente_id"/>
+      <index name="adressen_straat_id_index" unique="false" columns="straat_id"/>
+    </table>
+    <table name="extrainfo_jongere" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="extrainfo_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="extrainfo_jongere_extrainfo_id_foreign" columns="extrainfo_id" ref-table="extrainfos" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="extrainfo_jongere_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="extrainfo_jongere_extrainfo_id_index" unique="false" columns="extrainfo_id"/>
+      <index name="extrainfo_jongere_jongere_id_index" unique="false" columns="jongere_id"/>
+    </table>
+    <table name="extrainfos" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="omschrijving" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="priority" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="extrainfo_jongere_extrainfo_id_foreign" table="extrainfo_jongere" schema="" catalog="homestead" columns="extrainfo_id"/>
+    </table>
+    <table name="gemeenten" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gemeente" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="postcode" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="adressen_gemeente_id_foreign" table="adressen" schema="" catalog="homestead" columns="gemeente_id"/>
+      <exported-key name="huisartsen_gemeente_id_foreign" table="huisartsen" schema="" catalog="homestead" columns="gemeente_id"/>
+    </table>
+    <table name="groep_jongere" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="groep_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="groep_jongere_groep_id_foreign" columns="groep_id" ref-table="groepen" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="groep_jongere_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="groep_jongere_groep_id_index" unique="false" columns="groep_id"/>
+      <index name="groep_jongere_jongere_id_index" unique="false" columns="jongere_id"/>
+    </table>
+    <table name="groepen" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="omschrijving" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="groep_jongere_groep_id_foreign" table="groep_jongere" schema="" catalog="homestead" columns="groep_id"/>
+    </table>
+    <table name="huisarts_jongere" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="huisarts_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="huisarts_jongere_huisarts_id_foreign" columns="huisarts_id" ref-table="huisartsen" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="huisarts_jongere_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="huisarts_jongere_huisarts_id_index" unique="false" columns="huisarts_id"/>
+      <index name="huisarts_jongere_jongere_id_index" unique="false" columns="jongere_id"/>
+    </table>
+    <table name="huisartsen" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="naam" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="voornaam" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="contactnummer" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="url" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="straat_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nummer" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="bus" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="gemeente_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="huisartsen_gemeente_id_foreign" columns="gemeente_id" ref-table="gemeenten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="huisartsen_straat_id_foreign" columns="straat_id" ref-table="straten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="huisarts_jongere_huisarts_id_foreign" table="huisarts_jongere" schema="" catalog="homestead" columns="huisarts_id"/>
+      <index name="huisartsen_gemeente_id_index" unique="false" columns="gemeente_id"/>
+      <index name="huisartsen_straat_id_index" unique="false" columns="straat_id"/>
+    </table>
+    <table name="jongere_nationaliteit" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nationaliteit_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="jongere_nationaliteit_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="jongere_nationaliteit_nationaliteit_id_foreign" columns="nationaliteit_id" ref-table="nationaliteiten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="jongere_nationaliteit_jongere_id_index" unique="false" columns="jongere_id"/>
+      <index name="jongere_nationaliteit_nationaliteit_id_index" unique="false" columns="nationaliteit_id"/>
+    </table>
+    <table name="jongere_ouder" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="relatie_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ouder_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="jongere_ouder_ouder_id_foreign" columns="ouder_id" ref-table="ouders" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="jongere_ouder_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="jongere_ouder_relatie_id_foreign" columns="relatie_id" ref-table="relaties" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="jongere_ouder_jongere_id_index" unique="false" columns="jongere_id"/>
+      <index name="jongere_ouder_ouder_id_index" unique="false" columns="ouder_id"/>
+      <index name="jongere_ouder_relatie_id_index" unique="false" columns="relatie_id"/>
+    </table>
+    <table name="jongere_taal" schema="" catalog="homestead" type="TABLE">
+      <column name="jongere_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="taal_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="jongere_taal_jongere_id_foreign" columns="jongere_id" ref-table="jongeren" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="jongere_taal_taal_id_foreign" columns="taal_id" ref-table="talen" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="jongere_taal_jongere_id_index" unique="false" columns="jongere_id"/>
+      <index name="jongere_taal_taal_id_index" unique="false" columns="taal_id"/>
+    </table>
+    <table name="jongeren" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="voornaam" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="naam" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="geboortedatum" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="facebook" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="origine_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="jongeren_origine_id_foreign" columns="origine_id" ref-table="nationaliteiten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="activiteit_jongere_jongere_id_foreign" table="activiteit_jongere" schema="" catalog="homestead" columns="jongere_id"/>
+      <exported-key name="adres_jongere_jongere_id_foreign" table="adres_jongere" schema="" catalog="homestead" columns="jongere_id"/>
+      <exported-key name="extrainfo_jongere_jongere_id_foreign" table="extrainfo_jongere" schema="" catalog="homestead" columns="jongere_id"/>
+      <exported-key name="groep_jongere_jongere_id_foreign" table="groep_jongere" schema="" catalog="homestead" columns="jongere_id"/>
+      <exported-key name="huisarts_jongere_jongere_id_foreign" table="huisarts_jongere" schema="" catalog="homestead" columns="jongere_id"/>
+      <exported-key name="jongere_nationaliteit_jongere_id_foreign" table="jongere_nationaliteit" schema="" catalog="homestead" columns="jongere_id"/>
+      <exported-key name="jongere_ouder_jongere_id_foreign" table="jongere_ouder" schema="" catalog="homestead" columns="jongere_id"/>
+      <exported-key name="jongere_taal_jongere_id_foreign" table="jongere_taal" schema="" catalog="homestead" columns="jongere_id"/>
+      <index name="jongeren_origine_id_index" unique="false" columns="origine_id"/>
+    </table>
+    <table name="migrations" schema="" catalog="homestead" type="TABLE">
+      <column name="migration" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="nationaliteiten" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="omschrijving" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="jongere_nationaliteit_nationaliteit_id_foreign" table="jongere_nationaliteit" schema="" catalog="homestead" columns="nationaliteit_id"/>
+      <exported-key name="jongeren_origine_id_foreign" table="jongeren" schema="" catalog="homestead" columns="origine_id"/>
+      <exported-key name="ouders_origine_id_foreign" table="ouders" schema="" catalog="homestead" columns="origine_id"/>
+    </table>
+    <table name="ouders" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="naam" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="voornaam" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="origine_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="ouders_origine_id_foreign" columns="origine_id" ref-table="nationaliteiten" ref-schema="" ref-catalog="homestead" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="jongere_ouder_ouder_id_foreign" table="jongere_ouder" schema="" catalog="homestead" columns="ouder_id"/>
+      <index name="ouders_origine_id_index" unique="false" columns="origine_id"/>
+    </table>
+    <table name="password_resets" schema="" catalog="homestead" type="TABLE">
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <index name="password_resets_email_index" unique="false" columns="email"/>
+      <index name="password_resets_token_index" unique="false" columns="token"/>
+    </table>
+    <table name="relaties" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="omschrijving" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="jongere_ouder_relatie_id_foreign" table="jongere_ouder" schema="" catalog="homestead" columns="relatie_id"/>
+    </table>
+    <table name="straten" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="straatnaam" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="adressen_straat_id_foreign" table="adressen" schema="" catalog="homestead" columns="straat_id"/>
+      <exported-key name="huisartsen_straat_id_foreign" table="huisartsen" schema="" catalog="homestead" columns="straat_id"/>
+    </table>
+    <table name="talen" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="omschrijving" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="jongere_taal_taal_id_foreign" table="jongere_taal" schema="" catalog="homestead" columns="taal_id"/>
+    </table>
+    <table name="users" schema="" catalog="homestead" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="remember_token" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="users_email_unique" unique="true" columns="email"/>
+    </table>
+  </data-source>
+</component>
